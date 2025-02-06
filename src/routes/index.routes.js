@@ -1,10 +1,16 @@
 import { Router } from "express";
+import studentsRouter from "./students.routes.js";
+import usersRouter from "./students.routes.js";
 
 const routes = Router();
 
 // Rota raiz para teste
 routes.get("/", (req, res) => {
-  return res.status(200).json({ message: "Vai Corinthians!" });
+  res.status(200).send({ message: "Servidor Rodando" });
 });
 
-export default routes;
+router.use("/students", studentsRouter);
+router.use("/users", usersRouter);
+
+// Exporta as rotas
+export { routes };
